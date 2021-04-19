@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 
 import axios from "../Utils/axios";
 
 
-function Login(props) {
+function Login() {
   const [loading, setLoading] = useState(false);
   const subtotal = useFormInput('');
   const total = useFormInput('');
@@ -25,6 +25,7 @@ function Login(props) {
       console.log("la orden", order.data)
       console.log("todo", resProfile)
       await axios.post('/api/orders/', order)
+      alert('order registered');
       // props.history.push('/');
       setLoading(false);
     } catch (e) {

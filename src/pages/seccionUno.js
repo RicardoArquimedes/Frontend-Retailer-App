@@ -81,10 +81,7 @@ const Form = () => {
                 </div>
                 <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
             </form>
-            <ul>
-                {/* <li>{data.name}</li>
-                <li>{data.lastName}</li> */}
-            </ul>
+         
         </Fragment>
     );
 }
