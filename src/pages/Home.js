@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
+
 import { setUserlocal } from '../Utils/Common';
+import axios from "../Utils/axios";
 
 function Login(props) {
   const [loading, setLoading] = useState(false);
@@ -13,10 +15,10 @@ function Login(props) {
   const handleLogin = () => {
     setError(null);
     setLoading(true);
-    axios.post('http://localhost:8000/api/login', { email: email.value, password: password.value }).then(response => {
+    axios.post('/api/login', { email: email.value, password: password.value }).then(response => {
       setLoading(false);
       setUserlocal(response.data.token, response.data.email);
-      props.history.push('/orders');
+      props.history.push('/data');
     }).catch(error => {
       setLoading(false);
       if (error.response.status === 401) setError(error.response.data.message);

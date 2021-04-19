@@ -3,8 +3,9 @@ import Navbar from './components/Navbar';
 import Dropdown from './components/Dropdown';
 import seccionUno from './pages/seccionUno';
 import seccionDos from './pages/seccionDos';
+import profileData from './pages/profileData';
 import Home from './pages/Home';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,13 +30,21 @@ function App() {
   });
   return (
     <>
-      <Navbar toggle={toggle} />
-      <Dropdown isOpen={isOpen} toggle={toggle} />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/signup" exact component={seccionUno} />
-        <Route path="/orders" exact component={seccionDos} />
-      </Switch>
+      <Router>
+        <Navbar toggle={toggle} />
+        <profileData toggle={toggle} />
+        <Dropdown isOpen={isOpen} toggle={toggle} />
+
+        <Switch>
+
+          <Route path="/" exact component={Home} />
+          <Route exact path="/signup" component={seccionUno} />
+
+          <Route path="/data" component={profileData} />
+
+          <Route exact path="/orders" component={seccionDos} />
+        </Switch>
+      </Router>
     </>
   );
 }
