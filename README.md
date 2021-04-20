@@ -1,6 +1,11 @@
-# Getting Started with Create React App
+# Retailers App 
+<div>
+    <a href="https://retailer-app.vercel.app/" target="_blank"> 
+    <img src="assets/Readme.gif" width="900" class="responsive"/>
+    </a>
+</div>
+</br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
