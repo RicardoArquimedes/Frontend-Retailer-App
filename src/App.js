@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Dropdown from './components/Dropdown';
-import seccionUno from './pages/seccionUno';
-import seccionDos from './pages/seccionDos';
+import seccionUno from './pages/signUp';
+import seccionDos from './pages/Orders';
 import profileData from './pages/profileData';
 import Home from './pages/Home';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
@@ -30,7 +30,7 @@ function App() {
     <>
       <Router>
         <Navbar toggle={toggle} />
-        
+
         <Dropdown isOpen={isOpen} toggle={toggle} />
 
         <Switch>

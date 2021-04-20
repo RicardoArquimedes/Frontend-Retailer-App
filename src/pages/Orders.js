@@ -40,25 +40,27 @@ function Login(props) {
 
   return (
     
-    <div className="font-sans container mx-auto h-full flex flex-col justify-center items-center mt-20">
-      <form>
+    <div className="flex flex-row font-sans container mx-auto h-full  justify-center items-center mt-20">
+     
    
-      <div className="bg-white shadow-md rounded px-20 pt-10 pb-12 mb-4">
+      <div className="bg-blue-500 text-white shadow-md rounded px-20 pt-10 pb-12 mb-4">
         <div>
         <h1 className="mb-10 font-bold">Orders </h1>
         </div>
         <div>
           <label className="block text-grey-darker text-md font-bold mb-2" htmlFor='subtotal'>Total</label>
-          <input className="form-control" type="text" name="total" {...total} />
+          <input className="form-control text-gray-900" type="text" name="total" {...total} />
         </div>
         <div style={{ marginTop: 10 }}>
           <label className="block text-grey-darker text-md font-bold mb-2" htmlFor='total'>Subtotal</label>
-          <input  className="form-control"type="text"class name="subtotal" {...subtotal} />
+          <input  className="form-control text-gray-900"type="text"class name="subtotal" {...subtotal} />
         </div>
         {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
-        <input className="bg-blue-500 text-white font-bold py-2 px-4 mt-10 rounded" type="button" value={loading ? 'Loading...' : 'Submit Order'} onClick={handleLogin} disabled={loading} /><br />
+        <input className="bg-white text-blue-500 font-bold py-2 px-4 mt-10 rounded" type="button" value={loading ? 'Loading...' : 'Submit Order'} onClick={handleLogin} disabled={loading} /><br />
       </div>
-    </form>
+
+      
+
     </div>
   );
 }
