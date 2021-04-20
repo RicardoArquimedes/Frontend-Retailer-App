@@ -30,7 +30,7 @@ function App() {
     <>
       <Router>
         <Navbar toggle={toggle} />
-        <profileData toggle={toggle} />
+        
         <Dropdown isOpen={isOpen} toggle={toggle} />
 
         <Switch>

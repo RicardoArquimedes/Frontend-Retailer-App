@@ -1,9 +1,9 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 
 import axios from "../Utils/axios";
 
 
-function Login() {
+function Login(props) {
   const [loading, setLoading] = useState(false);
   const subtotal = useFormInput('');
   const total = useFormInput('');
@@ -25,7 +25,7 @@ function Login() {
       console.log("la orden", order.data)
       console.log("todo", resProfile)
       await axios.post('/api/orders/', order)
-      alert('order registered');
+      alert("order registered succesfully")
       // props.history.push('/');
       setLoading(false);
     } catch (e) {
@@ -41,27 +41,24 @@ function Login() {
   return (
     
     <div className="font-sans container mx-auto h-full flex flex-col justify-center items-center mt-20">
-      
-      <h1 className="mb-10 font-bold">Orders </h1>
-      <ul>
-
-      </ul>
+      <form>
+   
       <div className="bg-white shadow-md rounded px-20 pt-10 pb-12 mb-4">
         <div>
-
+        <h1 className="mb-10 font-bold">Orders </h1>
         </div>
         <div>
           <label className="block text-grey-darker text-md font-bold mb-2" htmlFor='subtotal'>Total</label>
-          <input type="text" name="total" {...total} />
+          <input className="form-control" type="text" name="total" {...total} />
         </div>
         <div style={{ marginTop: 10 }}>
           <label className="block text-grey-darker text-md font-bold mb-2" htmlFor='total'>Subtotal</label>
-          <input type="text" name="subtotal" {...subtotal} />
+          <input  className="form-control"type="text"class name="subtotal" {...subtotal} />
         </div>
         {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
         <input className="bg-blue-500 text-white font-bold py-2 px-4 mt-10 rounded" type="button" value={loading ? 'Loading...' : 'Submit Order'} onClick={handleLogin} disabled={loading} /><br />
       </div>
-
+    </form>
     </div>
   );
 }

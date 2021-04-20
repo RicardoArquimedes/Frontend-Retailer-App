@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import axiosInstance from '../Utils/axios';
+import axios from '../Utils/axios';
 
 
 const Login = () => {
@@ -8,34 +8,32 @@ const Login = () => {
     const history = useHistory();
     const [data, setData] = useState({
         email: '',
-        password: '',
-     
-
+        password: ''
     })
 
-    const [formData, updateFormData] = useState(setData);
+    const [dataForm, updatedataForm] = useState(setData);
 
-    const handleInputChange = (e) => {
-        updateFormData({
-            ...formData,
-            // Trimming any whitespace
+    const handleChange = (e) => {
+        updatedataForm({
+            ...dataForm,
             [e.target.name]: e.target.value.trim(),
+            
         });
     };
 
-    const sendData = (event) => {
+    const dataSend = (event) => {
         event.preventDefault()
-        console.log('enviando data...' + data.first_name + ' ' + data.last_name)
-    }
+        console.log('send data...' + data.email)
+      }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
+        console.log(dataForm);
 
-        axiosInstance
+        axios
             .post(`/api/login`, {
-                email: formData.email,
-                password: formData.password,
+                email: dataForm.email,
+                password: dataForm.password,
             
             })
             .then((res) => {
@@ -47,17 +45,17 @@ const Login = () => {
 
   return (
     <div className="font-sans container mx-auto h-full flex flex-col justify-center items-center mt-20">
-       <form className="row" onSubmit={sendData}>
+       <form className="row" onSubmit={dataSend}>
       
       <div className="bg-white shadow-md rounded px-20 pt-10 pb-12 mb-4">
       <h1 className="mb-10 font-bold">Log in to your account </h1>
         <div>
           <label className="block text-grey-darker text-md font-bold mb-2" htmlFor='email'>Email</label>
-          <input type="text" placeholder="email" className="form-control" onChange={handleInputChange} name="email"></input>
+          <input type="text" placeholder="email" className="form-control" onChange={handleChange} name="email"></input>
         </div>
         <div style={{ marginTop: 10 }}>
           <label className="block text-grey-darker text-md font-bold mb-2" htmlFor='password'>Password</label>
-          <input type="password" placeholder="password" className="form-control" onChange={handleInputChange} name="password"></input>
+          <input type="password" placeholder="password" className="form-control" onChange={handleChange} name="password"></input>
         </div>
         
        
