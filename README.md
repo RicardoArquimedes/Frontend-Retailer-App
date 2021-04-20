@@ -1,7 +1,7 @@
 # Retailers App 
 <div>
     <a href="https://retailer-app.vercel.app/" target="_blank"> 
-    <img src="assets/Readme.gif" width="900" class="responsive"/>
+    <img src="https://i.imgur.com/lo20NCe.jpeg" width="900" class="responsive"/>
     </a>
 </div>
 </br>
