@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-
 import axios from "../Utils/axios";
 
 
-function Login(props) {
+function Orders(props) {
   const [loading, setLoading] = useState(false);
-  const subtotal = useFormInput('');
-  const total = useFormInput('');
+  const subtotal = formUseInput('');
+  const total = formUseInput('');
 
 
   const [error, setError] = useState(null);
@@ -26,7 +25,6 @@ function Login(props) {
       console.log("todo", resProfile)
       await axios.post('/api/orders/', order)
       alert("order registered succesfully")
-      // props.history.push('/');
       setLoading(false);
     } catch (e) {
       console.log(e)
@@ -39,7 +37,7 @@ function Login(props) {
   }
 
   return (
-    
+    <div>
     <div className="flex flex-row font-sans container mx-auto h-full  justify-center items-center mt-20">
      
    
@@ -55,26 +53,23 @@ function Login(props) {
           <label className="block text-grey-darker text-md font-bold mb-2" htmlFor='total'>Subtotal</label>
           <input  className="form-control text-gray-900"type="text"class name="subtotal" {...subtotal} />
         </div>
-        {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
-        <input className="bg-white text-blue-500 font-bold py-2 px-4 mt-10 rounded" type="button" value={loading ? 'Loading...' : 'Submit Order'} onClick={handleLogin} disabled={loading} /><br />
+          <input className="bg-white text-blue-500 font-bold py-2 px-4 mt-10 rounded" type="button" value={loading ? 'Loading...' : 'Submit Order'} onClick={handleLogin} disabled={loading} /><br />
       </div>
-
-      
-
+    </div>
     </div>
   );
 }
 
-const useFormInput = initialValue => {
+const formUseInput = initialValue => {
   const [value, setValue] = useState(initialValue);
 
-  const handleChange = e => {
+  const inputHandleChange = e => {
     setValue(e.target.value);
   }
   return {
     value,
-    onChange: handleChange
+    onChange: inputHandleChange
   }
 }
 
-export default Login;
+export default Orders;
