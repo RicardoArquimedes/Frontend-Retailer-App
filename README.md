@@ -6,13 +6,15 @@
 </div>
 </br>
 
-In this project you can submit, pay and send orders.
 
-## Funcionalities
+## Deployment
 
 Runs the app in the static development mode.\
 Open [https://retailer-app.vercel.app/](https://retailer-app.vercel.app/) to view it in the browser.
 
+## Funcionalities
+
+In this project you can submit, pay and send orders.
 ### `Sign Up`
 
 <div>
@@ -42,4 +44,10 @@ Open [https://retailer-app.vercel.app/](https://retailer-app.vercel.app/) to vie
 
 ### `Orders `
 
+<div>
+    <a href="https://retailer-app.vercel.app/" target="_blank"> 
+    <img src="https://i.imgur.com/vgixjpR.jpg" width="900" class="responsive"/>
+    </a>
+</div>
+</br>
 
